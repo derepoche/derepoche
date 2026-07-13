@@ -512,49 +512,91 @@
       align-items: end;
     }
 
-    .newsletter h2 {
-      max-width: none;
-      font-size: clamp(40px, 5vw, 80px);
-      font-weight: 500;
-      line-height: 0.94;
-      letter-spacing: -0.065em;
-    }
+   .newsletter h2 {
+  max-width: none;
+  width: 100%;
+  font-size: clamp(40px, 5vw, 80px);
+  font-weight: 500;
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+}
 
-    .newsletter-nowrap {
+.newsletter h2 span {
+  display: block;
   white-space: nowrap;
-    }
+}
 
-    @media (max-width: 560px) {
-      .newsletter h2 {
-       font-size: clamp(26px, 8vw, 34px);
-       line-height: 1;
-    }
-   }
+.newsletter-form {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  border-bottom: 1px solid rgba(247, 246, 241, 0.65);
+}
 
-    .newsletter-form {
-      display: flex;
-      border-bottom: 1px solid rgba(247, 246, 241, 0.65);
-    }
+.newsletter-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 16px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--bg);
+}
 
-    .newsletter-form input {
-      width: 100%;
-      padding: 16px 0;
-      border: 0;
-      outline: 0;
-      background: transparent;
-      color: var(--bg);
-    }
+.newsletter-form input::placeholder {
+  color: rgba(247, 246, 241, 0.55);
+}
 
-    .newsletter-form input::placeholder {
-      color: rgba(247, 246, 241, 0.55);
-    }
+.newsletter-form button {
+  flex-shrink: 0;
+  padding-left: 20px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
-    .newsletter-form button {
-      padding-left: 20px;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
+@media (max-width: 560px) {
+  .newsletter {
+    margin: 0 16px;
+    padding: 36px 22px;
+    overflow: hidden;
+  }
+
+  .newsletter h2 {
+    width: 100%;
+    font-size: clamp(27px, 8vw, 34px);
+    line-height: 1;
+    letter-spacing: -0.055em;
+  }
+
+  .newsletter h2 span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .newsletter-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    margin-top: 24px;
+    border-bottom: 0;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+    min-width: 0;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(247, 246, 241, 0.65);
+  }
+
+  .newsletter-form button {
+    justify-self: start;
+    padding-left: 0;
+    font-size: 10px;
+  }
+}
 
     /* Footer */
     footer {
@@ -1085,7 +1127,7 @@
       <div>
         <p class="section-kicker">Newsletter</p>
         <h2>To the Times,<br>
-  <span class="newsletter-nowrap">The Things We Love.</span></h2>
+  <span class="newsletter-nowrap">The Things We Love</span></h2>
       </div>
 
       <form class="newsletter-form" id="newsletterForm">
