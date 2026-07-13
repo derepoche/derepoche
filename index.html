@@ -555,18 +555,26 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 560px) {
+  /* Newsletter mobile final fix */
+  @media (max-width: 560px) {
   .newsletter {
     margin: 0 16px;
     padding: 36px 22px;
+    width: auto;
+    min-width: 0;
     overflow: hidden;
+  }
+    .newsletter > div {
+    width: 100%;
+    min-width: 0;
   }
 
   .newsletter h2 {
     width: 100%;
-    font-size: clamp(27px, 8vw, 34px);
-    line-height: 1;
-    letter-spacing: -0.055em;
+    margin: 8px 0 0;
+    font-size: clamp(22px, 7vw, 28px);
+    line-height: 1.02;
+    letter-spacing: -0.06em;
   }
 
   .newsletter h2 span {
@@ -580,7 +588,7 @@
     gap: 12px;
     width: 100%;
     min-width: 0;
-    margin-top: 24px;
+    margin-top: 40px;
     border-bottom: 0;
   }
 
