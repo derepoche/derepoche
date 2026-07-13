@@ -6,10 +6,12 @@
   <meta name="description" content="데어에포헤∣도시 예술 아트샵" />
   <title>DerEpoche</title>
 
-  <!-- Google Fonts: 필요하면 다른 폰트로 교체하세요 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+KR:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -33,6 +35,7 @@
     }
 
     body {
+      overflow-x: hidden;
       background: var(--bg);
       color: var(--text);
       font-family: "Inter", "Noto Sans KR", sans-serif;
@@ -50,11 +53,15 @@
       text-decoration: none;
     }
 
+    button,
+    input {
+      font: inherit;
+    }
+
     button {
       border: 0;
       background: none;
       color: inherit;
-      font: inherit;
       cursor: pointer;
     }
 
@@ -128,11 +135,19 @@
     }
 
     .logo {
-      font-size: clamp(22px, 2.3vw, 34px);
-      font-weight: 600;
-      letter-spacing: -0.07em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 180px;
+      height: 50px;
       text-align: center;
       white-space: nowrap;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .cart-count {
@@ -253,7 +268,8 @@
     }
 
     .hero-title {
-      max-width: 100px;
+      max-width: 760px;
+      margin-top: 18px;
       font-size: clamp(44px, 6.2vw, 105px);
       font-weight: 500;
       line-height: 0.9;
@@ -263,37 +279,20 @@
 
     .hero-bottom {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr;
       gap: 24px;
       align-items: end;
     }
 
     .hero-description {
-      max-width: 400px;
+      max-width: 420px;
       color: var(--muted);
       font-family: "Noto Sans KR", sans-serif;
       word-break: keep-all;
     }
-    .nowrap {
-  white-space: nowrap;
-    }
-    .round-link {
-      width: 94px;
-      aspect-ratio: 1;
-      border: 1px solid var(--text);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: 0.25s ease;
-    }
 
-    .round-link:hover {
-      background: var(--text);
-      color: var(--bg);
-      transform: rotate(-8deg);
+    .nowrap {
+      white-space: nowrap;
     }
 
     .hero-visual {
@@ -304,22 +303,11 @@
     }
 
     .hero-visual img {
-      transition: transform 0.8s cubic-bezier(.2,.65,.3,1);
+      transition: transform 0.8s cubic-bezier(.2, .65, .3, 1);
     }
 
     .hero-visual:hover img {
       transform: scale(1.025);
-    }
-
-    .floating-label {
-      position: absolute;
-      right: 18px;
-      bottom: 18px;
-      padding: 8px 11px;
-      background: rgba(247, 246, 241, 0.92);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
 
     /* Marquee */
@@ -351,7 +339,9 @@
     }
 
     @keyframes marquee {
-      to { transform: translateX(-50%); }
+      to {
+        transform: translateX(-50%);
+      }
     }
 
     /* Sections */
@@ -363,7 +353,7 @@
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 30px;
-      margin-bottom: clamp(32px, 5vw, 76px);
+      margin-bottom: clamp(28px, 4vw, 56px);
       align-items: end;
     }
 
@@ -373,12 +363,13 @@
       text-transform: uppercase;
     }
 
-    .section-title {
-      max-width: 960px;
-      font-size: clamp(38px, 5.5vw, 92px);
-      font-weight: 500;
-      line-height: 0.95;
-      letter-spacing: -0.07em;
+    .shop-intro {
+      max-width: 650px;
+      margin-bottom: clamp(48px, 7vw, 90px);
+      color: var(--muted);
+      font-family: "Noto Sans KR", sans-serif;
+      line-height: 1.75;
+      word-break: keep-all;
     }
 
     /* Product grid */
@@ -401,7 +392,7 @@
     }
 
     .product-image img {
-      transition: transform 0.55s cubic-bezier(.2,.65,.3,1), opacity 0.35s ease;
+      transition: transform 0.55s cubic-bezier(.2, .65, .3, 1), opacity 0.35s ease;
     }
 
     .product-card:hover .product-image img {
@@ -451,6 +442,27 @@
       padding: 80px var(--page-padding) clamp(80px, 11vw, 170px);
     }
 
+    .editorial-text {
+      max-width: 1200px;
+      width: 100%;
+      margin-bottom: 36px;
+    }
+
+    .editorial-text h2 {
+      margin: 16px 0;
+      font-size: clamp(36px, 4.5vw, 72px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      white-space: nowrap;
+    }
+
+    .editorial-text p {
+      color: var(--muted);
+      font-family: "Noto Sans KR", sans-serif;
+      word-break: keep-all;
+    }
+
     .editorial-grid {
       display: grid;
       grid-template-columns: 1.35fr 0.65fr;
@@ -463,76 +475,30 @@
       overflow: hidden;
     }
 
-    .editorial-side {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
     .editorial-small {
       aspect-ratio: 4 / 5;
       overflow: hidden;
     }
 
-    .editorial-text {
-       max-width: 1200px;
-  width: 100%;
-  margin-bottom: 36px;
-}
-
-    .editorial-text h2 {
-        margin-bottom: 16px;
-  font-size: clamp(36px, 4.5vw, 72px);
-  font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: -0.06em;
-  white-space: nowrap;
-}
-
-    .editorial-text p {
-      color: var(--muted);
-      font-family: "Noto Sans KR", sans-serif;
-      word-break: keep-all;
+    .editorial-row {
+      display: grid;
+      gap: clamp(12px, 2vw, 24px);
+      margin-top: clamp(12px, 2vw, 24px);
     }
 
-.editorial-row {
-  display: grid;
-  gap: clamp(12px, 2vw, 24px);
-  margin-top: clamp(12px, 2vw, 24px);
-}
+    .editorial-row-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
-.editorial-row-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
+    .editorial-row-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 
-.editorial-row-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
+    .editorial-extra {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
 
-.editorial-extra {
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-}
-
-.editorial-extra img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@media (max-width: 900px) {
-  .editorial-row-3,
-  .editorial-row-4 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 560px) {
-  .editorial-row-3,
-  .editorial-row-4 {
-    grid-template-columns: 1fr;
-  }
-}
     /* Newsletter */
     .newsletter {
       margin: 0 var(--page-padding);
@@ -565,7 +531,6 @@
       outline: 0;
       background: transparent;
       color: var(--bg);
-      font: inherit;
     }
 
     .newsletter-form input::placeholder {
@@ -586,16 +551,9 @@
 
     .footer-top {
       display: grid;
-      grid-template-columns: 1.5fr repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
       padding-bottom: 80px;
-    }
-
-    .footer-logo {
-      font-size: clamp(44px, 6vw, 98px);
-      font-weight: 600;
-      line-height: 0.8;
-      letter-spacing: -0.08em;
     }
 
     .footer-column h3 {
@@ -637,7 +595,7 @@
       transform: translateY(0);
     }
 
-    /* Responsive */
+    /* Tablet */
     @media (max-width: 900px) {
       :root {
         --header-height: 62px;
@@ -646,10 +604,6 @@
       .desktop-nav,
       .header-actions .action-link:not(.cart-link) {
         display: none;
-      }
-
-      .site-header {
-        grid-template-columns: 1fr auto 1fr;
       }
 
       .menu-toggle {
@@ -681,15 +635,22 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .editorial-text h2 {
+        white-space: normal;
+      }
+
       .editorial-grid,
       .newsletter {
         grid-template-columns: 1fr;
       }
 
-      .editorial-side {
-        display: grid;
-        grid-template-columns: 0.8fr 1.2fr;
-        align-items: end;
+      .editorial-grid {
+        align-items: stretch;
+      }
+
+      .editorial-row-3,
+      .editorial-row-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .footer-top {
@@ -697,50 +658,122 @@
       }
     }
 
+    /* Mobile */
     @media (max-width: 560px) {
+      :root {
+        --page-padding: 16px;
+      }
+
+      body {
+        font-size: 13px;
+      }
+
+      .site-header {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
       .logo {
-        font-size: 20px;
+        width: 130px;
+        height: 38px;
+      }
+
+      .hero {
+        padding: 16px;
+        gap: 20px;
       }
 
       .hero-copy {
-        min-height: 390px;
+        min-height: auto;
+        gap: 48px;
+        padding: 36px 0 28px;
       }
 
       .hero-title {
-        font-size: clamp(48px, 17vw, 78px);
+        max-width: 100%;
+        font-size: clamp(44px, 15vw, 70px);
+        line-height: 0.92;
       }
 
-      .hero-bottom {
-        grid-template-columns: 1fr;
+      .hero-description,
+      .shop-intro {
+        max-width: 100%;
+        font-size: 13px;
+        line-height: 1.75;
       }
 
-      .round-link {
-        width: 76px;
+      .hero-description br,
+      .shop-intro br {
+        display: none;
+      }
+
+      .nowrap {
+        white-space: normal;
       }
 
       .hero-visual {
-        min-height: 540px;
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+      }
+
+      .section {
+        padding: 72px 16px;
+      }
+
+      .section-header {
+        margin-bottom: 28px;
+      }
+
+      .shop-intro {
+        margin-bottom: 48px;
       }
 
       .product-grid {
-        grid-template-columns: 1fr 1fr;
-        row-gap: 48px;
+        grid-template-columns: 1fr;
+        gap: 48px;
       }
 
       .product-info {
-        grid-template-columns: 1fr;
-      }
-
-      .product-price {
-        color: var(--muted);
+        grid-template-columns: 1fr auto;
       }
 
       .quick-add {
         display: none;
       }
 
-      .editorial-side {
+      .editorial {
+        padding: 72px 16px;
+      }
+
+      .editorial-text h2 {
+        white-space: normal;
+        font-size: 40px;
+      }
+
+      .editorial-grid,
+      .editorial-row-3,
+      .editorial-row-4 {
         grid-template-columns: 1fr;
+      }
+
+      .editorial-main,
+      .editorial-small,
+      .editorial-extra {
+        aspect-ratio: 4 / 5;
+      }
+
+      .newsletter {
+        margin: 0 16px;
+        padding: 36px 22px;
+        gap: 24px;
+      }
+
+      .newsletter h2 {
+        font-size: 38px;
+      }
+
+      .newsletter-form {
+        margin-top: 6px;
       }
 
       .footer-top {
@@ -766,26 +799,18 @@
         transition-duration: 0.01ms !important;
       }
     }
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 180px;
-  height: 50px;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
   </style>
 </head>
 
 <body>
   <header class="site-header" id="header">
-    <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="메뉴 열기"
+      aria-expanded="false"
+      type="button"
+    >
       <span></span>
       <span></span>
     </button>
@@ -796,9 +821,9 @@
       <a class="nav-link" href="#contact">Contact</a>
     </nav>
 
-<a class="logo" href="#">
-  <img src="images/logo.png" alt="DerEpoche">
-</a>
+    <a class="logo" href="#" aria-label="DerEpoche 홈">
+      <img src="images/logo.png" alt="DerEpoche">
+    </a>
 
     <div class="header-actions">
       <button class="action-link" type="button">Search</button>
@@ -816,6 +841,7 @@
       <a href="#contact">Contact</a>
       <a href="#">Log in</a>
     </nav>
+
     <div class="mobile-menu-bottom">
       <span>Seoul, Korea</span>
       <span>Instagram ↗</span>
@@ -826,40 +852,34 @@
     <section class="hero">
       <div class="hero-copy">
         <div>
-          <p class="eyebrow">••Der Zeit Ihre Kunst••</p>
+          <p class="eyebrow">•• Der Zeit Ihre Kunst ••</p>
           <h1 class="hero-title">The Inspiration<br>From<br>City</h1>
         </div>
 
         <div class="hero-bottom">
           <p class="hero-description">
-            데어에포헤는 시대와 도시, 예술을 모티브로 아트워크를 제작합니다. 
-            <br>
-            <br>
+            데어에포헤는 시대와 도시, 예술을 모티브로 아트워크를 제작합니다.
+            <br><br>
             순간을 이루는 객체를 모아 새로운 순간을 재현하고,
-            <br>
-            이렇게 재현된 또 다른 순간을 통해 
-            우리가 살아가는 도시에 대한 확장된 
+            이렇게 재현된 또 다른 순간을 통해 우리가 살아가는 도시에 대한 확장된
             <span class="nowrap">서사를 제시합니다.</span>
-            <br>
-            <br>
-            친애하는 이 시대에게, 
-            우리가 사랑하는 것들을 전합니다. 
+            <br><br>
+            친애하는 이 시대에게, 우리가 사랑하는 것들을 전합니다.
           </p>
-                </div>
+        </div>
       </div>
 
       <figure class="hero-visual">
-        <figure class="hero-visual">
-          <img src="images/main1.jpg" alt="브랜드 메인 비주얼">
-    </figure>
+        <img src="images/main1.jpg" alt="브랜드 메인 비주얼">
+      </figure>
     </section>
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span class="marquee-item">Der Zeit Ihr Kunst</span>
+        <span class="marquee-item">Der Zeit Ihre Kunst</span>
         <span class="marquee-item">Based in Seoul, Berlin</span>
         <span class="marquee-item">Small things, vivid moments</span>
-        <span class="marquee-item">Der Zeit Ihr Kunst</span>
+        <span class="marquee-item">Der Zeit Ihre Kunst</span>
         <span class="marquee-item">Based in Seoul, Berlin</span>
         <span class="marquee-item">Small things, vivid moments</span>
       </div>
@@ -869,26 +889,24 @@
       <header class="section-header reveal">
         <p class="section-kicker">Selected objects · 01</p>
       </header>
-        <p>
-              데어에포헤의 작업은 도시를 촬영한 사진과, 
-              <br>
-              이로부터 영감받아 그린 그림에서 시작합니다.
-              <br>
-              <br>
-              각각 따로 촬영하고 그린 후 하나의 디자인으로 합치거나, 
-              <br>
-              촬영한 사진을 바탕으로 새로운 그림을 그립니다. 
-              <br>
-              <br>
-              오브제들을 오리고 붙여 꼴라주 작업을 하고 
-              <br> 사진 위에 오일파스텔을 더하며, 
-              <br> 다양한 예술적 시도에 도전합니다. 
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
+      <div class="shop-intro reveal">
+        <p>
+          데어에포헤의 작업은 도시를 촬영한 사진과,
+          <br>
+          이로부터 영감받아 그린 그림에서 시작합니다.
+          <br><br>
+          각각 따로 촬영하고 그린 후 하나의 디자인으로 합치거나,
+          <br>
+          촬영한 사진을 바탕으로 새로운 그림을 그립니다.
+          <br><br>
+          오브제들을 오리고 붙여 꼴라주 작업을 하고,
+          <br>
+          사진 위에 오일파스텔을 더하며,
+          <br>
+          다양한 예술적 시도에 도전합니다.
+        </p>
+      </div>
 
       <div class="product-grid">
         <article class="product-card reveal">
@@ -942,7 +960,7 @@
         <article class="product-card reveal">
           <a href="#">
             <div class="product-image">
-               <img src="images/product4.JPG" alt="Color City Mouse Pad">
+              <img src="images/product4.JPG" alt="Color City Mouse Pad Blue">
               <span class="quick-add">View item</span>
             </div>
             <div class="product-info">
@@ -958,7 +976,7 @@
         <article class="product-card reveal">
           <a href="#">
             <div class="product-image">
-              <img src="images/product5.JPG" alt="Color City Mouse Pad">
+              <img src="images/product5.JPG" alt="Color City Mouse Pad Pink">
               <span class="quick-add">View item</span>
             </div>
             <div class="product-info">
@@ -989,77 +1007,67 @@
       </div>
     </section>
 
-
     <section class="editorial" id="story">
+      <div class="editorial-text reveal">
+        <p class="section-kicker">Our story · 02</p>
+        <h2>Welcome to our Dosi-Archive</h2>
+        <p>
+          Dosi means City in Korean.<br>
+          We collect pieces of different cities and capture the moments
+          that make our lives beautiful.
+        </p>
+      </div>
 
-  <div class="editorial-text reveal">
-    <p class="section-kicker">Our story · 02</p>
+      <div class="editorial-grid">
+        <figure class="editorial-main reveal">
+          <img
+            src="images/main2.jpg"
+            alt="브랜드 아카이브 메인 이미지"
+            loading="lazy"
+          >
+        </figure>
 
-    <h2>Welcome to our Dosi-Archive</h2>
+        <figure class="editorial-small reveal">
+          <img
+            src="images/main3.jpg"
+            alt="브랜드 아카이브 서브 이미지"
+            loading="lazy"
+          >
+        </figure>
+      </div>
 
-    <p>
-      Dosi means City in Korean.<br>
-      We collect pieces of different cities and capture the moments
-      that make our lives beautiful.
-    </p>
-  </div>
+      <div class="editorial-row editorial-row-3">
+        <figure class="editorial-extra reveal">
+          <img src="images/main4.jpg" alt="아카이브 이미지 3" loading="lazy">
+        </figure>
 
-  <div class="editorial-grid">
+        <figure class="editorial-extra reveal">
+          <img src="images/main5.jpg" alt="아카이브 이미지 4" loading="lazy">
+        </figure>
 
-    <figure class="editorial-main reveal">
-      <img
-        src="images/main2.jpg"
-        alt="브랜드 아카이브 메인 이미지"
-        loading="lazy"
-      >
-    </figure>
+        <figure class="editorial-extra reveal">
+          <img src="images/main6.jpg" alt="아카이브 이미지 5" loading="lazy">
+        </figure>
+      </div>
 
-    <figure class="editorial-small reveal">
-      <img
-        src="images/main3.jpg"
-        alt="브랜드 아카이브 서브 이미지"
-        loading="lazy"
-      >
-    </figure>
+      <div class="editorial-row editorial-row-4">
+        <figure class="editorial-extra reveal">
+          <img src="images/main7.jpg" alt="아카이브 이미지 6" loading="lazy">
+        </figure>
 
-  </div>
+        <figure class="editorial-extra reveal">
+          <img src="images/main8.jpg" alt="아카이브 이미지 7" loading="lazy">
+        </figure>
 
-<div class="editorial-row editorial-row-3">
+        <figure class="editorial-extra reveal">
+          <img src="images/main9.jpg" alt="아카이브 이미지 8" loading="lazy">
+        </figure>
 
-  <figure class="editorial-extra reveal">
-    <img src="images/main4.jpg" alt="아카이브 이미지 3">
-  </figure>
-
-  <figure class="editorial-extra reveal">
-    <img src="images/main5.jpg" alt="아카이브 이미지 4">
-  </figure>
-
-  <figure class="editorial-extra reveal">
-    <img src="images/main6.jpg" alt="아카이브 이미지 5">
-  </figure>
-
-</div>
-
-<div class="editorial-row editorial-row-4">
-
-  <figure class="editorial-extra reveal">
-    <img src="images/main7.jpg" alt="아카이브 이미지 6">
-  </figure>
-
-  <figure class="editorial-extra reveal">
-    <img src="images/main8.jpg" alt="아카이브 이미지 7">
-  </figure>
-
-  <figure class="editorial-extra reveal">
-    <img src="images/main9.jpg" alt="아카이브 이미지 8">
-  </figure>
-
-  <figure class="editorial-extra reveal">
-    <img src="images/main10.jpg" alt="아카이브 이미지 9">
-  </figure>
-
-</div>
-</section>
+        <figure class="editorial-extra reveal">
+          <img src="images/main10.jpg" alt="아카이브 이미지 9" loading="lazy">
+        </figure>
+      </div>
+    </section>
 
     <section class="newsletter reveal">
       <div>
@@ -1068,7 +1076,12 @@
       </div>
 
       <form class="newsletter-form" id="newsletterForm">
-        <input type="email" aria-label="이메일 주소" placeholder="Your email address" required>
+        <input
+          type="email"
+          aria-label="이메일 주소"
+          placeholder="Your email address"
+          required
+        >
         <button type="submit">Subscribe →</button>
       </form>
     </section>
@@ -1076,7 +1089,6 @@
 
   <footer id="contact">
     <div class="footer-top">
-
       <div class="footer-column">
         <h3>Explore</h3>
         <a href="#shop">Shop</a>
@@ -1111,6 +1123,7 @@
     const menuToggle = document.getElementById("menuToggle");
     const mobileMenu = document.getElementById("mobileMenu");
     const mobileLinks = mobileMenu.querySelectorAll("a");
+    const newsletterForm = document.getElementById("newsletterForm");
 
     window.addEventListener("scroll", () => {
       header.classList.toggle("scrolled", window.scrollY > 10);
@@ -1129,22 +1142,27 @@
       setMenu(!mobileMenu.classList.contains("open"));
     });
 
-    mobileLinks.forEach(link => {
+    mobileLinks.forEach((link) => {
       link.addEventListener("click", () => setMenu(false));
     });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
 
-    document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+    document
+      .querySelectorAll(".reveal")
+      .forEach((element) => observer.observe(element));
 
-    document.getElementById("newsletterForm").addEventListener("submit", (event) => {
+    newsletterForm.addEventListener("submit", (event) => {
       event.preventDefault();
       const button = event.currentTarget.querySelector("button");
       button.textContent = "Thank you!";
